@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class backgroundScrolling : MonoBehaviour
+public class BackgroundScrolling : MonoBehaviour
 {
     public float timeStart = 0f;
     public int per_second_increment = 10;
@@ -19,10 +19,10 @@ public class backgroundScrolling : MonoBehaviour
         if (timeStart >= per_second_increment && additionalScrollSpeed < 0.71f)
         {
             timeStart = 0f;
-            Debug.Log("timeStart: " + Mathf.Round(timeStart));
-            additionalScrollSpeed += 0.05f;
+            //Debug.Log("timeStart: " + Mathf.Round(timeStart));
+            additionalScrollSpeed += 0.0001f;
         }
-        Debug.Log(timeStart);
+        //Debug.Log(timeStart);
     }
 
     private void FixedUpdate()
