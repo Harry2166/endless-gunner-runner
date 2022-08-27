@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class backgroundScrolling : MonoBehaviour
 {
+    public float timeStart = 0f;
+    public int per_second_increment = 10;
     //scroll speed added to all backgrounds 
-    public float additionalScrollSpeed;
+    public float additionalScrollSpeed = 0f;
     //an array of all the background game objects
     public GameObject[] backgrounds;
     //an array that corresponds to the backgrounds array, where it gives the scroll speed for each individual background
     public float[] scrollSpeed;
+
+    void Update()
+    {
+        timeStart += Time.deltaTime;
+        if (timeStart >= per_second_increment && additionalScrollSpeed < 0.71f)
+        {
+            timeStart = 0f;
+            Debug.Log("timeStart: " + Mathf.Round(timeStart));
+            additionalScrollSpeed += 0.05f;
+        }
+        Debug.Log(timeStart);
+    }
 
     private void FixedUpdate()
     {

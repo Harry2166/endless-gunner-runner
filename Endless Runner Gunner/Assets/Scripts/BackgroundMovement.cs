@@ -11,6 +11,11 @@ public class BackgroundScrolling : MonoBehaviour
     //an array that corresponds to the backgrounds array, where it gives the scroll speed for each individual background
     public float[] scrollSpeed;
 
+    private void Update()
+    {
+
+    }
+
     private void FixedUpdate()
     {
 
