@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 20f;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject impactEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +19,10 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+    void OnTriggerEnter2D()
+    {
+        Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

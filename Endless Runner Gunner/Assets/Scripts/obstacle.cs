@@ -20,6 +20,14 @@ public class obstacle : MonoBehaviour {
     void Update() {
     if (transform.position.x < -12f){
         Destroy(this.gameObject);
+        }
     }
-}
+
+    void OnTriggerEnter2D(Collider2D hitInfo)
+    {
+        if(hitInfo.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
