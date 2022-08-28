@@ -8,7 +8,7 @@ public class PlayerDeath : MonoBehaviour
 
     private Animator anim;
     private Rigidbody2D rb;
-    //[SerializeField] private AudioSource death_sound_effect;
+    [SerializeField] private AudioSource death_sound_effect;
     //public GameOverScreen GameOverScreen;
     public bool isDead;
     public bool deathAnimation = false;
@@ -36,7 +36,7 @@ public class PlayerDeath : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-            //death_sound_effect.Play();
+            death_sound_effect.Play();
             Time.timeScale = 0;
             Die();
         }
@@ -45,6 +45,7 @@ public class PlayerDeath : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
+        isDead = true;
     }
 
     public void Dead()
@@ -54,7 +55,7 @@ public class PlayerDeath : MonoBehaviour
 
     public void GameOver()
     {
-        Dead();
+        //Dead();
         //GameOverScreen.Setup();
     }
 

@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private enum MovementState {walk, jump, fall};
 
+
     public Rigidbody2D rb;
     public float moveSpeed;
     private SpriteRenderer sr;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpStartTime;
     private float jumpTime;
     private bool isJumping;
+    [SerializeField] private AudioSource jump_sound_effect;
 
 
 
@@ -61,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             jumpTime = jumpStartTime;
             rb.velocity = Vector2.up * jumpForce;
+            jump_sound_effect.Play();
         }
 
         if (Input.GetButton("Jump") && isJumping == true)

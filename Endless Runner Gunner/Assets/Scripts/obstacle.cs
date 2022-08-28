@@ -8,6 +8,8 @@ public class obstacle : MonoBehaviour {
     private Rigidbody2D rb;
     private Vector2 screenBounds;
     [SerializeField] private GameObject impactEffect;
+    [SerializeField] private AudioSource bullet_hit_sound_effect;
+
 
     // Use this for initialization
     void Start() {
@@ -27,6 +29,7 @@ public class obstacle : MonoBehaviour {
     {
         if(hitInfo.tag == "Projectile")
         {
+            bullet_hit_sound_effect.Play();
             Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
