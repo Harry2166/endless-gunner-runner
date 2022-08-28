@@ -11,6 +11,7 @@ public class PlayerDeath : MonoBehaviour
     //[SerializeField] private AudioSource death_sound_effect;
     //public GameOverScreen GameOverScreen;
     public bool isDead;
+    public bool deathAnimation = false;
 
 
     private void Start()
@@ -19,12 +20,24 @@ public class PlayerDeath : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    void Update()
+    {
+        if(Time.timeScale < 1 && deathAnimation == false) {
+            Time.timeScale += 0.001f;
+            if(Time.timeScale > 0.5f)
+            {
+                deathAnimation = true;
+                Time.timeScale = 0;
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Obstacle")
         {
             //death_sound_effect.Play();
-            Debug.Log("I Died!");
+            Time.timeScale = 0;
             Die();
         }
     }
