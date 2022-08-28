@@ -7,9 +7,9 @@ public class obstacle : MonoBehaviour {
     public float speed = 10.0f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
+    [SerializeField] private GameObject impactEffect;
 
-
-// Use this for initialization
+    // Use this for initialization
     void Start() {
     rb = this.GetComponent<Rigidbody2D>();
     rb.velocity = new Vector2(-speed, 0);
@@ -25,9 +25,11 @@ public class obstacle : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if(hitInfo.tag == "Player")
+        if(hitInfo.tag == "Projectile")
         {
+            Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
+
 }
