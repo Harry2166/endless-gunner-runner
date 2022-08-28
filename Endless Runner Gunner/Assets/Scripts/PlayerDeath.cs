@@ -24,7 +24,7 @@ public class PlayerDeath : MonoBehaviour
     {
         if(Time.timeScale < 1 && deathAnimation == false) {
             Time.timeScale += 0.001f;
-            if(Time.timeScale > 0.5f)
+            if(Time.timeScale > 0.6f)
             {
                 deathAnimation = true;
                 Time.timeScale = 0;

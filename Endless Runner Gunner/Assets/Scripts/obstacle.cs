@@ -19,7 +19,6 @@ public class obstacle : MonoBehaviour {
 // Update is called once per frame
     void Update() {
     if (transform.position.x < -12f){
-        Debug.Log(transform.position.x);
         Destroy(this.gameObject);
     }
 }

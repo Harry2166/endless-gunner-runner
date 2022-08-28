@@ -283,7 +283,7 @@ MonoBehaviour:
   obstaclePrefab:
   - {fileID: 664484877064881209, guid: 1a9a5ee6fcefbc5479eaae0377b23b97, type: 3}
   - {fileID: 8718326989519566100, guid: 2812c2f5a7aba9b4daa5ef6249505dbb, type: 3}
-  respawnTime: 1
+  respawnTime: 1.9
   small_spawn: -3.65
   tall_spawn: -3.1
 --- !u!1 &561163702
@@ -653,6 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
+  deathAnimation: 0
 --- !u!95 &1213973217
 Animator:
   serializedVersion: 4

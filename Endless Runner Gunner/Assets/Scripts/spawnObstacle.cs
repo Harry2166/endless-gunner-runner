@@ -18,14 +18,14 @@ public class spawnObstacle : MonoBehaviour
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         StartCoroutine(asteroidWave());
-        Debug.Log(screenBounds.x * -2);
     }
 
     void Update()
     {
+
         timeStart += Time.deltaTime;
 
-        if (timeStart >= per_second_increment && respawnTime > 1f)
+        if (timeStart >= per_second_increment && (0.9f < respawnTime && respawnTime <= 1.9f))
         {
             timeStart = 0f;
             Debug.Log("timeStart: " + Mathf.Round(timeStart));
@@ -36,14 +36,24 @@ public class spawnObstacle : MonoBehaviour
 
     private void spawnEnemy()
     {
-        random_number = Random.Range(0, 2);
-        GameObject a = Instantiate(obstaclePrefab[random_number]) as GameObject;
-        if(random_number == 0) {
+        if(respawnTime == 1.9f)
+        {
+            GameObject a = Instantiate(obstaclePrefab[0]) as GameObject;
             a.transform.position = new Vector2(12, small_spawn);
+        } else
+        {
+            random_number = Random.Range(0, 2);
+            GameObject a = Instantiate(obstaclePrefab[random_number]) as GameObject;
+            if (random_number == 0)
+            {
+                a.transform.position = new Vector2(12, small_spawn);
+            }
+            else
+            {
+                a.transform.position = new Vector2(12, tall_spawn);
+            }
         }
-        else {
-            a.transform.position = new Vector2(12, tall_spawn);
-        }
+        
     }
     IEnumerator asteroidWave()
     {
