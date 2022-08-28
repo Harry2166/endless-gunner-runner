@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerDeath : MonoBehaviour
 {
 
-    //private Animator anim;
+    private Animator anim;
     private Rigidbody2D rb;
     //[SerializeField] private AudioSource death_sound_effect;
     //public GameOverScreen GameOverScreen;
@@ -16,7 +16,7 @@ public class PlayerDeath : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,7 +31,7 @@ public class PlayerDeath : MonoBehaviour
     private void Die()
     {
         rb.bodyType = RigidbodyType2D.Static;
-        //anim.SetTrigger("death");
+        anim.SetTrigger("death");
     }
 
     public void Dead()

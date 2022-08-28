@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     //private Rigidbody2D rb;
     private BoxCollider2D coll;
     //private SpriteRenderer sprite;
-    //private Animator anim;
+    private Animator anim;
+    private enum MovementState {walk, jump, fall};
 
     public Rigidbody2D rb;
     public float moveSpeed;
@@ -33,7 +34,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -42,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         //FaceMoveDirection();
         Jump();
+        UpdateAnimationUpdate();
     }
 
     void FixedUpdate()
@@ -77,6 +80,29 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
         }
+    }
+
+    private void UpdateAnimationUpdate()
+    {
+
+        MovementState state;
+
+        if (rb.velocity.y > .1f)
+        {
+            state = MovementState.jump;
+        }
+
+        else if (rb.velocity.y < -.1f)
+        {
+            state = MovementState.fall;
+        }
+
+        else
+        {
+            state = MovementState.walk;
+        }
+
+        anim.SetInteger("state", (int)state);
     }
 
 }
