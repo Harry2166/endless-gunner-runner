@@ -9,7 +9,6 @@ public class PlayerDeath : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     [SerializeField] private AudioSource death_sound_effect;
-    //public GameOverScreen GameOverScreen;
     public bool isDead;
     public bool deathAnimation = false;
 
@@ -28,6 +27,7 @@ public class PlayerDeath : MonoBehaviour
             {
                 deathAnimation = true;
                 Time.timeScale = 0;
+                GameOver();
             }
         }
     }
@@ -48,15 +48,11 @@ public class PlayerDeath : MonoBehaviour
         isDead = true;
     }
 
-    public void Dead()
-    {
-        isDead = true;
-    }
-
     public void GameOver()
     {
-        //Dead();
-        //GameOverScreen.Setup();
+        isDead = false;
+        deathAnimation = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }

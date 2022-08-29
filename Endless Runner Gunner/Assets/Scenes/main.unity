@@ -2259,5 +2259,9 @@ PrefabInstance:
       propertyPath: bully_maguire
       value: 
       objectReference: {fileID: 519420034}
+    - target: {fileID: 8444673336983671462, guid: 6f8c01471c8fb6f4894a5ca3c7ce1e4b, type: 3}
+      propertyPath: GameOverScreen
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f8c01471c8fb6f4894a5ca3c7ce1e4b, type: 3}

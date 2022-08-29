@@ -6,7 +6,7 @@ using TMPro;
 public class Score : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI TextElement;
-    [SerializeField] private float timeStart = 0;
+    public float timeStart = 0;
     public PlayerDeath PlayerDeath;
     void Start()
     {
