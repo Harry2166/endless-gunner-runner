@@ -9,3 +9,9 @@ skies background: https://assetstore.unity.com/packages/2d/environments/pixel-sk
 character: https://livingtheindie.itch.io/pixel-sidescroller-character
 
 ground texture: https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360
+
+background music: https://www.youtube.com/watch?v=abs2GTQcRM4
+
+trees: https://spudy-pixlz.itch.io/simple-trees
+
+sound effects made with: https://www.bfxr.net
